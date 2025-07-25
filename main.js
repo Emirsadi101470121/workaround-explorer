@@ -5,7 +5,7 @@ import {
   getAverageSalaryByCompany,
   getSalaryAtCompany,
   getIndustryAverageSalary
-} from './modules/workAroundModule.js';
+} from './modules/salaryData.js';
 
 // UI elements
 const roleSelect = document.getElementById('roleSelect');
