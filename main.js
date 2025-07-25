@@ -7,6 +7,7 @@ import {
   getIndustryAverageSalary
 } from './modules/salaryData.js';
 
+
 // UI elements
 const roleSelect = document.getElementById('roleSelect');
 const companySelect = document.getElementById('companySelect');
