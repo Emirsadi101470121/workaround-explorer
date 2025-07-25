@@ -1,10 +1,15 @@
-import { getAverageSalaryByRole, getAverageSalaryByCompany, getAverageSalaryIndustry, getSalaryAtCompany, getIndustryAverageSalary } from './modules/workAroundModule.js';
+import {
+  getAverageSalaryByRole,
+  getAverageSalaryByCompany,
+  getSalaryAtCompany,
+  getIndustryAverageSalary
+} from './modules/workAroundModule.js';
 
 const resultsSection = document.getElementById('resultsSection');
 const analyzeBtn = document.getElementById('analyze');
 
 analyzeBtn.addEventListener('click', () => {
-  resultsSection.innerHTML = ''; 
+  resultsSection.innerHTML = ''; // Clear previous
 
   const data = [
     {
@@ -16,17 +21,13 @@ analyzeBtn.addEventListener('click', () => {
       value: getAverageSalaryByCompany('Big Tech Inc'),
     },
     {
-      label: 'Average Salary by Industry (Tech)',
-      value: getAverageSalaryIndustry('Tech'),
+      label: 'Industry Average Salary',
+      value: getIndustryAverageSalary(),
     },
     {
       label: 'Salary at Company (Software Engineer at Big Tech Inc)',
       value: getSalaryAtCompany('Software Engineer', 'Big Tech Inc'),
-    },
-    {
-      label: 'Industry Average Salary (Software Engineer in Tech)',
-      value: getIndustryAverageSalary('Software Engineer', 'Tech'),
-    },
+    }
   ];
 
   data.forEach(({ label, value }) => {
