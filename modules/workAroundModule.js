@@ -15,8 +15,9 @@ const getAverageSalaryByCompany = company => {
 
 const getSalaryAtCompany = (role, company) => {
   const roleAtCompany = salaryData.find(obj => obj.role === role && obj.company === company);
-  return roleAtCompany.salary;
+  return roleAtCompany ? roleAtCompany.salary : 0;
 };
+
 
 const getIndustryAverageSalary = () => {
   const allSalaries = salaryData.map(obj => obj.salary);
