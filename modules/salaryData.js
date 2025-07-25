@@ -11,15 +11,15 @@ const salaryData = [
   { role: 'Technical Lead', company: 'Small Data Inc.', salary: 135000 },
   { role: 'Software Engineer II', company: 'Small Data Inc.', salary: 115000 },
   { role: 'Software Engineer I', company: 'Small Data Inc.', salary: 95000 },
-  { role: 'Software Engineer', company: 'Big Tech Inc', salary: 95000 }  // ✅ now with proper comma above
+  { role: 'Software Engineer', company: 'Big Tech Inc', salary: 95000 }
 ];
 
 const getRoles = () => {
-  return ['CTO', 'Technical Lead', 'Software Engineer II', 'Software Engineer I'];
+  return [...new Set(salaryData.map(item => item.role))];
 };
 
 const getCompanies = () => {
-  return ['Big Data Inc.', 'Medium Data Inc.', 'Small Data Inc.'];
+  return [...new Set(salaryData.map(item => item.company))];
 };
 
 const getDataByRole = role => {
@@ -31,5 +31,4 @@ const getDataByCompany = company => {
 };
 
 export { getRoles, getCompanies, getDataByRole, getDataByCompany };
-
 export default salaryData;
