@@ -1,11 +1,14 @@
 import {
   getRoles,
-  getCompanies,
+  getCompanies
+} from './modules/salaryData.js';
+
+import {
   getAverageSalaryByRole,
   getAverageSalaryByCompany,
   getSalaryAtCompany,
   getIndustryAverageSalary
-} from './modules/salaryData.js';
+} from './modules/workAroundModule.js';
 
 
 // UI elements
