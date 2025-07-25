@@ -9,19 +9,26 @@
   <body class="bg-zinc-900 text-white min-h-screen flex items-center justify-center px-4">
     <div class="max-w-2xl w-full bg-zinc-800 rounded-2xl shadow-xl p-8 space-y-6">
       <h1 class="text-3xl font-bold text-center text-lime-400">💼 WorkAroundExplorer</h1>
-      <p class="text-center text-gray-400">Explore average salaries by role and industry</p>
+      <p class="text-center text-gray-400">Explore average salaries by role and company</p>
 
-      <section class="space-y-4" id="resultsSection">
-        
-      </section>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <select id="roleSelect" class="bg-zinc-700 rounded p-2 flex-1">
+          <option disabled selected>Select Role</option>
+        </select>
+        <select id="companySelect" class="bg-zinc-700 rounded p-2 flex-1">
+          <option disabled selected>Select Company</option>
+        </select>
+      </div>
 
       <div class="text-center">
         <button
           id="analyze"
-          class="bg-lime-500 hover:bg-lime-600 text-black font-semibold py-2 px-6 rounded-full transition">
+          class="bg-lime-500 hover:bg-lime-600 text-black font-semibold py-2 px-6 mt-4 rounded-full transition">
           Analyze Salaries
         </button>
       </div>
+
+      <section id="resultsSection" class="space-y-4"></section>
     </div>
 
     <script type="module" src="main.js"></script>

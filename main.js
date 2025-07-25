@@ -1,32 +1,61 @@
 import {
+  getRoles,
+  getCompanies,
   getAverageSalaryByRole,
   getAverageSalaryByCompany,
   getSalaryAtCompany,
   getIndustryAverageSalary
 } from './modules/workAroundModule.js';
 
-const resultsSection = document.getElementById('resultsSection');
+// UI elements
+const roleSelect = document.getElementById('roleSelect');
+const companySelect = document.getElementById('companySelect');
 const analyzeBtn = document.getElementById('analyze');
+const resultsSection = document.getElementById('resultsSection');
 
+// Populate dropdowns
+getRoles().forEach(role => {
+  const option = document.createElement('option');
+  option.value = role;
+  option.textContent = role;
+  roleSelect.appendChild(option);
+});
+
+getCompanies().forEach(company => {
+  const option = document.createElement('option');
+  option.value = company;
+  option.textContent = company;
+  companySelect.appendChild(option);
+});
+
+// Button click handler
 analyzeBtn.addEventListener('click', () => {
-  resultsSection.innerHTML = ''; // Clear previous results
+  const role = roleSelect.value;
+  const company = companySelect.value;
+
+  if (!role || !company || role === "Select Role" || company === "Select Company") {
+    resultsSection.innerHTML = `<p class="text-red-400 font-semibold">Please select both a role and a company.</p>`;
+    return;
+  }
+
+  resultsSection.innerHTML = ''; // Clear old results
 
   const data = [
     {
-      label: 'Average Salary by Role (Software Engineer)',
-      value: getAverageSalaryByRole('Software Engineer'),
+      label: `Average Salary by Role (${role})`,
+      value: getAverageSalaryByRole(role),
     },
     {
-      label: 'Average Salary by Company (Big Tech Inc)',
-      value: getAverageSalaryByCompany('Big Tech Inc'),
+      label: `Average Salary by Company (${company})`,
+      value: getAverageSalaryByCompany(company),
     },
     {
-      label: 'Industry Average Salary',
-      value: getIndustryAverageSalary(), // ✅ fixed name
+      label: `Industry Average Salary`,
+      value: getIndustryAverageSalary(),
     },
     {
-      label: 'Salary at Company (Software Engineer at Big Tech Inc)',
-      value: getSalaryAtCompany('Software Engineer', 'Big Tech Inc'),
+      label: `Salary at Company (${role} at ${company})`,
+      value: getSalaryAtCompany(role, company),
     }
   ];
 
